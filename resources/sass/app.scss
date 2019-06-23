@@ -1,14 +1,295 @@
+/* Reset browser defaults */
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Tahoma, Verdana;
+}
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* Default button style */
+button {
+    padding: 4px 8px;
+    border: 1px solid dodgerblue;
+    background: none;
+    color: dodgerblue;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
 
-// Variables
-@import 'variables';
+    &:hover {
+        color: #FFF;
+        border-color: dodgerblue;
+        background: dodgerblue;
+    }
+}
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+.app-container {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    .main-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 55px;
+        background: #FFF;
+        color: #333;
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
+        z-index: 105;
+
+        .header-brand {
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            font-size: 24px;
+        }
+
+        .header-left {
+            position: absolute;
+            top: 12px;
+            left: 300px;
+
+            input {
+                padding: 7px 15px;
+                width: 300px;
+                font-size: 16px;
+                background: #fbfbfb;
+                box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.1);
+                border: none;
+                border-radius: 4px;
+                color: #555;
+            }
+        }
+
+        .header-right {
+            position: absolute;
+            top: 14px;
+            right: 25px;
+
+            button {
+                margin-left: 35px;
+            }
+
+            .header-dropdown {
+                position: relative;
+                margin-left: 15px;
+                display: inline-block;
+
+                i.fas {
+                    font-size: 22px;
+                    padding: 4px 5px 0px;
+                    color: #666;
+                    cursor: pointer;
+
+                    &:hover, &.active {
+                        color: orange;
+                    }
+                }
+
+                .badge {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: dodgerblue;
+                    width: 15px;
+                    height: 14px;
+                    padding-top: 1px;
+                    font-size: 10px;
+                    text-align: center;
+                    color: #fff;
+                    border-radius: 100%;
+                }
+
+                .shopping_cart_dropdown {
+                    display: none;
+                    position: absolute;
+                    top: 40px;
+                    right: -10px;
+                    background: #FFF;
+                    width: 500px;
+                    height: 300px;
+                    padding: 20px;
+                    box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.1);
+                    border-radius: 2px;
+                    border-top: 2px solid orange;
+
+                    h1 {
+                        width: 100%;
+                        font-size: 28px;
+                        font-weight: normal;
+                        margin-top: 10px;
+                    }
+
+                    table {
+                        width: 100%;
+
+                        tr {
+                            td {
+                                padding: 4px 0px;
+
+                                &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+                                    text-align: right;
+                                }
+
+                                &:last-child i.fas {
+                                    font-size: 14px;
+                                }
+
+                                input {
+                                    text-align: center;
+                                }
+                            }
+
+                            &:last-of-type td {
+                                text-align: right;
+                                border-top: 1px solid #e4e4e4;
+                            }
+                        }
+                    }
+
+                    & > button {
+                        position: absolute;
+                        bottom: 20px;
+                        right: 20px;
+                        color: orange;
+                        border-color: orange;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .main-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        background: #FFF;
+        width: 230px;
+        height: calc(100% - 70px - 55px); //Minus padding and top offset
+        padding-top: 70px;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+        z-index: 104;
+
+        li {
+            width: 100%;
+            height: 45px;
+            font-size: 18px;
+            border-bottom: 1px solid #e4e4e4;
+
+            a {
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                color: #333;
+                padding: 10px 0px 0px 25px;
+                display: block;
+
+                &:hover {
+                    color: dodgerblue;
+                }
+            }
+
+            &.active a {
+                color: dodgerblue;
+            }
+
+            &.divider {
+                margin-top: 100px;
+                color: orange;
+                padding-left: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .main-content {
+        position: absolute;
+        top: 55px;
+        left: 230px;
+        padding: 30px 20px;
+        width: calc(100% - 230px - 40px);
+        height: calc(100% - 55px - 60px);
+        overflow: auto;
+        background: #fbfbfb;
+
+        .products-overview {
+
+            .products-list {
+                list-style: none;
+                margin: 0;
+                padding: 15px;
+                width: calc(100% - 30px);
+                max-width: 1000px;
+                margin: 0 auto;
+                background: #FFF;
+                border-radius: 4px;
+                box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+
+                .product {
+                    width: 100%;
+                    position: relative;
+                    min-height: 200px;
+                    border-bottom: 1px dotted #e4e4e4;
+                    margin-bottom: 30px;
+
+                    .product-thumbnail {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 20%;
+                        height: 100%;
+                        min-width: 100px;
+                        min-height: 100px;
+
+                        img {
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+
+                    .product-details {
+                        position: absolute;
+                        top: 0;
+                        left: calc(20% + 20px);
+                        width: calc(60% - 40px);
+                        height: 100%;
+
+                        a {
+                            color: #333;
+                            font-size: 20px;
+                            text-decoration: none;
+                        }
+                    }
+
+                    .product-pricing {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 20%;
+                        height: 100%;
+
+                        .product-price {
+                            font-size: 20px;
+                            color: #333;
+                            margin-bottom: 20px;
+                        }
+
+                        .product-add {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,31 @@
+.admin-data-overview {
+  width: 100%;
+  height: 100%;
+}
+.admin-data-overview a button {
+  margin-bottom: 20px;
+}
+.admin-data-overview table {
+  width: 100%;
+  margin-bottom: 50px;
+}
+.admin-data-overview table th {
+  text-align: left;
+  border-bottom: 1px solid #e4e4e4;
+  font-weight: normal;
+  color: #666;
+  padding: 0px 2px 4px;
+}
+.admin-data-overview table td {
+  padding: 4px 2px;
+  vertical-align: top;
+  color: #333;
+  border-bottom: 1px dotted #e4e4e4;
+}
+.admin-data-overview table td img {
+  max-width: 100px;
+  max-height: 100px;
+  padding: 5px;
+}
+
+/*# sourceMappingURL=admin.css.map */

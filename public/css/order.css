@@ -1,0 +1,75 @@
+.order-form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
+}
+.order-form .shopping_cart {
+  width: calc(60% - 40px);
+  height: calc(100% - 40px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px 0px;
+  padding: 0px 20px;
+  border-right: 1px solid #e4e4e4;
+}
+.order-form .shopping_cart h1 {
+  font-size: 20px;
+  font-weight: normal;
+  color: dodgerblue;
+}
+.order-form .shopping_cart table {
+  width: 100%;
+}
+.order-form .shopping_cart table tr td {
+  padding: 5px 0px;
+}
+.order-form .shopping_cart table tr td:nth-child(3), .order-form .shopping_cart table tr td:nth-child(4), .order-form .shopping_cart table tr td:nth-child(5) {
+  text-align: right;
+}
+.order-form .shopping_cart table tr td:last-child i.fas {
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+.order-form .shopping_cart table tr td:last-child i.fas:hover {
+  color: #666;
+}
+.order-form .shopping_cart table tr td input {
+  text-align: center;
+}
+.order-form .shopping_cart table tr:last-child td {
+  border-top: 1px solid #e4e4e4;
+  text-align: right;
+}
+.order-form .order-info {
+  width: calc(40% - 40px);
+  height: calc(100% - 40px);
+  height: 100%;
+  margin: 20px 0px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.order-form .order-info table {
+  width: 100%;
+}
+.order-form .order-info table tr td {
+  padding: 5px 0px;
+}
+.order-form .order-info table tr td[colspan="2"] {
+  color: orange;
+  font-size: 20px;
+  padding-top: 20px;
+}
+.order-form .order-info button {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+
+/*# sourceMappingURL=order.css.map */

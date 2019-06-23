@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'streetname', 'housenumber', 'region', 'zipcode'
     ];
 
     /**
@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getFullAddress() {
+        return $this->streetname . " " . $this->housenumber . " " . $this->zipcode . " " . $this->region;
+    }
+
+    public function orders() {
+        return $this->hasMany('App\Models\Order');
+    }
+
 }

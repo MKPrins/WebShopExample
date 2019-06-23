@@ -13,7 +13,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'image', 'price', 'category',
+        'title', 'description', 'price', 'category_id', 'image_id',
     ];
 
     /**
@@ -22,8 +22,16 @@ class Product extends Model
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+
     ];
+
+    public function image() {
+        return $this->belongsTo('App\Models\Image');
+    }
+
+    public function category() {
+        return $this->belongsTo('App\Models\Category');
+    }
 
 }
 

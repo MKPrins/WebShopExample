@@ -1,9 +1,21 @@
 @extends('layouts.default-container')
 
+@push('scripts')
+    <script src="{{ asset('js/ShoppingCart.js') }}"></script>
+@endpush
+
 @section('content')
 
-    <h1>Products</h1>
+    <div class="products-overview">
 
-    {{ var_dump($Products) }}
+        <ul class="products-list">
+            @if(count($Products))
+                @each('partials.product', $Products, 'product')
+            @else
+                <h3>No products have been found</h3>
+            @endif
+        </ul>
+
+    </div>
 
 @endsection
