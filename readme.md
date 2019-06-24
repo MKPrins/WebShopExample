@@ -29,7 +29,7 @@ php artisan key:generate
 ```
 We also need to link our storage to the public folder using;
 ```
-php artisan storage: link
+php artisan storage:link
 ```
 And last, we need to migrate our database tables. Appending the `--seed` tag also creates a 100 database dummy records of Products.
 ```
