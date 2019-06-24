@@ -1,6 +1,8 @@
-# Admin credentials
+### Admin credentials
+```
 Username: admin@webshop.nl
 Password: secret
+```
 
 ## Quick start guide
 
