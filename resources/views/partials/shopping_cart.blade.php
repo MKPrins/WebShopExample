@@ -12,7 +12,7 @@
         </tbody>
     </table>
 
-    <a href="/Order" >
+    <a href="{{route('order')}}" >
         <button>Checkout</button>
     </a>
 

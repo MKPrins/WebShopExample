@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 use App\Models\Image;
 
-use Intervention\Image\ImageManagerStatic;
-
-dd(extension_loaded('gd'));
+use Intervention\Image\ImageManagerStatic as ImageManager;
 
 class ProductController extends Controller
 {
@@ -52,8 +50,13 @@ class ProductController extends Controller
                 $product->image && Storage::delete('public/images/' . $product->image->name);
             }
 
-            $filename = time() . urlencode($request->title) . "." . $imageFile->getClientOriginalExtension();
+            $timestamp = time();
+            $filename = $timestamp . urlencode($request->title) . "." . $imageFile->getClientOriginalExtension();
             Storage::putFileAs('public\images', $imageFile, $filename);
+            
+            ImageManager::make(env('APP_URL').'/storage/images/'.$filename)
+                ->resize(200, 200)
+                ->save('../storage/app/public/images/' . 'thumb-' . $filename);
 
             $image = $product->image ? Image::find($product->image->id) : new Image();
             $image->name = $filename;

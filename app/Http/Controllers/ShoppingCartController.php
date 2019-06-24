@@ -62,7 +62,7 @@ class ShoppingCartController extends Controller
         foreach($shoppingCart as $id => $amount) {
             $product = Product::with('image')->find($id);
             $product->amount = $amount;
-            $product->thumb = $product->image->name;
+            $product->thumb = isset($product->image->name) ? 'thumb-'.$product->image->name : 'default-product.png';
             $totalPrice += $product->price * $amount;
 
             unset($product->image);

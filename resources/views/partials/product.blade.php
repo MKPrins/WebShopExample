@@ -1,11 +1,11 @@
 <li class="product">
 
     <div class="product-thumbnail">
-        <img src="/storage/images/{{ $product->image->name ?? 'default+product.png' }}" alt="thumb" />
+        <img src="{{env('APP_URL')}}/storage/images/{{ isset($product->image->name) ? 'thumb-'.$product->image->name : 'default-product.png' }}" alt="thumb" />
     </div>
 
     <div class="product-details">
-        <a href="/Product/{{ $product->id }}">
+        <a href="{{ route('product', $product->id) }}">
             <strong class="product-title">
                 {{ $product->title }}
             </strong>

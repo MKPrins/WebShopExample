@@ -4,7 +4,7 @@
 
     <div>
 
-        <form method="POST" action="/Admin/UserEdit">
+        <form method="POST" action="{{route('user_edit_post')}}">
             @csrf
 
             <table>

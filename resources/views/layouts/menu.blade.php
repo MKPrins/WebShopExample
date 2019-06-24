@@ -5,12 +5,12 @@
 <ul class="main-menu">
 
     <li class="active">
-        <a href="/All">Alle producten</a>
+        <a href="{{route('all_products')}}">Alle producten</a>
     </li>
 
     @foreach($Categories as $category)
         <li>
-            <a href="/Category/{{$category->id}}">{{ $category->name }}</a>
+            <a href="{{route('category', $category->id)}}">{{ $category->name }}</a>
         </li>
     @endforeach
 
@@ -21,15 +21,15 @@
         </li>
 
         <li>
-            <a href="/Admin/Products">Products</a>
+            <a href="{{route('admin_products')}}">Products</a>
         </li>
 
         <li>
-            <a href="/Admin/Orders">Orders</a>
+            <a href="{{route('admin_orders')}}">Orders</a>
         </li>
 
         <li>
-            <a href="/Admin/Users">Users</a>
+            <a href="{{route('admin_users')}}">Users</a>
         </li>
     @endif
 

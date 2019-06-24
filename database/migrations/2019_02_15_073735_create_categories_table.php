@@ -25,9 +25,10 @@ class CreateCategoriesTable extends Migration
 
         DB::table('categories')->insert([
             ['name' => 'Boeken'],
-            ['name' => 'Elektronica'],
-            ['name' => 'Lifestyle'],
+            ['name' => 'Laptops & Computers'],
+            ['name' => 'Huishouden'],
             ['name' => 'Kleding'],
+            ['name' => 'Mubilair'],
         ]);
     }
 

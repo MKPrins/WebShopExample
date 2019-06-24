@@ -14,6 +14,7 @@ var SELECTORS = {
     SHOPPING_CART_ICON: '.header-dropdown[data-dropdown=shopping_cart] > i',
     SHOPPING_CART_BADGE: '.header-dropdown[data-dropdown=shopping_cart] .badge',
     SHOPPING_CART_TABLE: '.shopping_cart_dropdown tbody',
+    ORDER_FORM: '.order-form'
 };
 
 $(window).ready(function () {
@@ -34,13 +35,16 @@ $(window).ready(function () {
     $(SELECTORS.SHOPPING_CART).on('click', SELECTORS.PRODUCT_REMOVE, removeFromShoppingCart);
     $(SELECTORS.SHOPPING_CART_TOGGLE).on('click', toggleShoppingCart);
 
+    $(SELECTORS.ORDER_FORM).on('change', SELECTORS.PRODUCT_AMOUNT, updateShoppingCart);
+    $(SELECTORS.ORDER_FORM).on('click', SELECTORS.PRODUCT_REMOVE, removeFromShoppingCart);
+
     /**
      * Get the contents of the Shopping Cart
      */
     function getShoppingCart() {
         $.ajax({
             method: 'GET',
-            url: ROUTES.SHOPPING_CART_GET,
+            url: ROOT_PATH + ROUTES.SHOPPING_CART_GET,
             success: function (response) {
                 _ShoppingCart = response;
                 populateShoppingCart();
@@ -58,7 +62,7 @@ $(window).ready(function () {
 
         $.ajax({
             method: 'POST',
-            url: ROUTES.SHOPPING_CART_ADD,
+            url: ROOT_PATH + ROUTES.SHOPPING_CART_ADD,
             data: {
                 id: id
             },
@@ -78,7 +82,7 @@ $(window).ready(function () {
 
         $.ajax({
             method: 'POST',
-            url: ROUTES.SHOPPING_CART_REMOVE,
+            url: ROOT_PATH + ROUTES.SHOPPING_CART_REMOVE,
             data: {
                 id: id
             },
@@ -100,7 +104,7 @@ $(window).ready(function () {
 
         $.ajax({
             method: 'POST',
-            url: ROUTES.SHOPPING_CART_UPDATE,
+            url: ROOT_PATH + ROUTES.SHOPPING_CART_UPDATE,
             data: {
                 id: id,
                 amount: amount
@@ -152,7 +156,7 @@ $(window).ready(function () {
                 productCount += product.amount;
                 tbody += (
                     '<tr>' +
-                        '<td><img src="/storage/images/' + product.thumb + '" style="max-width: 70px; max-height: 50px;"/></td>' +
+                        '<td><img src="' + ROOT_PATH + '/storage/images/' + product.thumb + '" style="max-width: 70px; max-height: 50px;"/></td>' +
                         '<td>' + product.title + '</td>' +
                         '<td><input type="text" size="2" value="' + product.amount + '" class="product-amount" data-product-id="' + product.id + '"/></td>' +
                         '<td>$' + (product.price * product.amount).toFixed(2) + '</td>' +

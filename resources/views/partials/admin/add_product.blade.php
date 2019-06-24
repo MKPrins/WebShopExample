@@ -12,13 +12,12 @@
 
     <div class="product-add-form">
 
-        <form id="product-form" method="POST" action="/Admin/ProductAdd" enctype="multipart/form-data" >
+        <form id="product-form" method="POST" action="{{route('product_add_post')}}" enctype="multipart/form-data" >
             @csrf
 
             <div class="product-img">
-                <img src="/storage/images/{{ $Product->image->name ?? 'default+product.png' }}" class="product-image-preview"/>
+                <img src="{{env('APP_URL')}}/storage/images/{{ $Product->image->name ?? 'default-product.png' }}" class="product-image-preview"/>
                 <input name="image" type="file" class="product-image-input"/>
-                <input name="image" type="file" class="product-image-resized-input" style="visibility: hidden"/>
             </div>
 
             <table>

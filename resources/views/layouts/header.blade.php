@@ -5,7 +5,7 @@
     </div>
 
     <div class="header-left" >
-        <form method="POST" action="/Search" enctype="multipart/form-data" >
+        <form method="POST" action="{{route('search_product')}}" enctype="multipart/form-data" >
             @csrf
             <input type="text" name="search_query" placeholder="Search products..." />
             <input type="submit" name="submit" style="display: none">
@@ -21,11 +21,11 @@
         </div>
 
         @if(Auth::user())
-            <a href="/logout" >
+            <a href="{{route('logout')}}" >
                 <button>Log out</button>
             </a>
         @else
-            <a href="/login" >
+            <a href="{{route('login')}}" >
                 <button>Log in</button>
             </a>
         @endif

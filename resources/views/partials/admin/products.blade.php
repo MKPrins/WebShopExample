@@ -4,7 +4,7 @@
 
     <div class="admin-data-overview">
 
-        <a href="/Admin/ProductAdd">
+        <a href="{{route('product_add')}}">
             <button>
                 <i class="fas fa-plus"></i>
                <span>
@@ -33,19 +33,19 @@
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>
-                        <img src="/storage/images/{{ $product->image->name ?? 'default+product.png' }}" alt="thumb" />
+                        <img src="{{env('APP_URL')}}/storage/images/{{ isset($product->image->name) ? 'thumb-'.$product->image->name : 'default-product.png' }}" alt="thumb" />
                     </td>
                     <td>{{ $product->title }}</td>
                     <td>{{ substr($product->description, 0, 100) . "..." }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>${{ $product->price }}</td>
                     <td>
-                        <a href="/Admin/ProductEdit/{{ $product->id }}" >
+                        <a href="{{ route('product_edit', $product->id) }}" >
                             <i class="fas fa-edit"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="/Admin/ProductDel/{{ $product->id }}" >
+                        <a href="{{ route('product_del', $product->id) }}" >
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>

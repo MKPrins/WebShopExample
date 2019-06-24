@@ -27,12 +27,12 @@
                     <td>{{ $user->getFullAddress() }}</td>
                     <td>{{ $user->role }}</td>
                     <td>
-                        <a href="/Admin/UserEdit/{{ $user->id }}" >
+                        <a href="{{ route('user_edit', $user->id) }}" >
                             <i class="fas fa-edit"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="/Admin/UserDel/{{ $user->id }}" >
+                        <a href="{{ route('user_del', $user->id) }}" >
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>

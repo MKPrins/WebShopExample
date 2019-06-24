@@ -17,7 +17,7 @@ $factory->define(App\Models\Product::class, function (Faker $faker) {
     return [
         'title' => $faker->name,
         'description' => $faker->paragraph(),
-        'category' => 0,
+        'category_id' => $faker->numberBetween(1,5),
         'price' => $faker->randomFloat(2, 0.99, 99.99)
     ];
 });
